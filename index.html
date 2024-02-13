@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Card</title>
+    <style>
+        body {
+            background-color: #ffcccc;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            margin: 0;
+        }
+
+        .card {
+            background-color: #ff99cc;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        button {
+            background-color: #ff6699;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-color: #ff3366;
+        }
+
+        .yes-page, .no-page, .kitten-page {
+            display: none;
+        }
+
+        .custom-background {
+            background-image: url('custom_background.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+
+        .center-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .response-image, .valentine-image, .small-image {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .yes-page .center-content {
+            font-size: 24px;
+        }
+
+        .yes-page .response-image {
+            max-width: 70%;
+        }
+
+        .yes-page .image-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .yes-page .image-container img {
+            max-width: 25%;
+            margin: 0 5px;
+            border-radius: 10px;
+        }
+
+        .no-page .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            align-items: center;
+        }
+
+        .no-page .button-container button {
+            margin: 10px;
+        }
+
+        .no-page .image-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .no-page .image-container img {
+            max-width: 30%;
+            border-radius: 10px;
+        }
+
+        .small-image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .small-image {
+            max-width: 50%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Will you be my Valentine?</h1>
+    <!-- Add an image to the index page -->
+    <img id="indexImage" class="response-image" src="Png.png" alt="Index Image">
+    <button onclick="showYesPage()">Yes</button>
+    <button onclick="showNoPage()">No</button>
+</div>
+
+<div class="card yes-page custom-background" id="yesPage">
+    <div class="center-content">
+        <p>yayyy! us forever</p>
+        <div class="image-container">
+            <div class="small-image-container">
+                <img class="small-image" src="gift.gif" alt="Small Image">
+                <button class="open-button" onclick="openLink()">Open</button>
+            </div>
+            <img class="response-image" src="us.gif" alt="Yay Images">
+            <img src="snowalk.gif" alt="Right Image">
+            <img src="catkiss.gif" alt="Fourth Image">
+        </div>
+    </div>
+</div>
+
+<div class="card no-page custom-background" id="noPage">
+    <p>You thought you had a choice?</p>
+    <div class="button-container">
+        <button onclick="goToKittenPage()">Accept your fate</button>
+        <button onclick="goToIndexPage()">Sorry</button>
+    </div>
+    <div class="image-container">
+        <img src="punch.gif" alt="Left Image">
+        <img class="response-image" src="bknives.JPG" alt="No Image">
+        <img src="angy.gif" alt="Right Image">
+    </div>
+</div>
+
+<div class="card kitten-page custom-background" id="kittenPage">
+    <div class="center-content">
+        <p>Sike! I would never hurt you kitten</p>
+        <img class="response-image" src="hug.gif" alt="Kitten Image">
+    </div>
+</div>
+
+<script>
+    function showYesPage() {
+        document.getElementById('yesPage').style.display = 'block';
+        document.getElementById('noPage').style.display = 'none';
+        document.getElementById('kittenPage').style.display = 'none';
+        document.getElementById('indexImage').style.display = 'none'; // Hide the index image
+    }
+
+    function showNoPage() {
+        document.getElementById('yesPage').style.display = 'none';
+        document.getElementById('noPage').style.display = 'block';
+        document.getElementById('kittenPage').style.display = 'none';
+        document.getElementById('indexImage').style.display = 'none'; // Hide the index image
+    }
+
+    function goToIndexPage() {
+        location.reload();
+    }
+
+    function goToKittenPage() {
+        document.getElementById('noPage').style.display = 'none';
+        document.getElementById('kittenPage').style.display = 'block';
+    }
+
+    function openLink() {
+        window.open("https://open.spotify.com/playlist/3OQLHmM6o88uIvWhTmrIgD?si=068a507aa0a0435d", "_blank");
+    }
+</script>
+
+</body>
+</html>
